@@ -1,10 +1,8 @@
 import React from 'react'
 
-export default function Footer({score}) {
-    
+export default function Footer({ score, totques }) {
+
     return (
-        <div>
-            <h6>Score: {score}</h6>
-        </div>
+        <center><div className='card1'><h3>Score: {score}/{(totques) * 10}</h3></div></center>
     )
 }

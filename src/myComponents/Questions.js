@@ -9,21 +9,21 @@ export default class Questions extends Component {
     };
     
     setScore = () => {
-        this.setState({score: this.state.score+1})
+        this.setState({score: this.state.score+10})
     }
 
     render() {
 
         return (
             <div className="container">
-                <h3 className="text-center my-3">Questions</h3>
-                <h3>Score: {this.state.score}</h3>
-                <ol>
-                    {this.props.ques.map((singleq) => {
-                        return <li key={singleq.id}><SingleQ singleq={singleq} score={this.state.score} updateScore={this.setScore}/></li>
+                <center><div className='card1'><span className='temp'>
+                <h3>Score: {this.state.score}/{(this.props.totques)*10}</h3></span>
+                </div></center><ol>
+                    {this.props.ques.map((singleq, i) => {
+                        return <li key={singleq.id}><SingleQ index={i} singleq={singleq} score={this.state.score} updateScore={this.setScore}/></li>
                     })}
                 </ol>
-                <Footer score={this.state.score}/>
+                <Footer score={this.state.score} totques={this.props.totques}/>
             </div>
         )
     }
